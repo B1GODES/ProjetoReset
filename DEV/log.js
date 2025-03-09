@@ -2,12 +2,9 @@ var btnRequest = document.querySelector("#pedidos");
 var caixa = document.querySelector(".box");
 var btnEnv = document.querySelector("#envios");
 var caixaE = document.querySelector(".boxE");
-<<<<<<< Updated upstream
 var btnLoc = document.querySelector("#locais");
 var caixaL = document.querySelector(".boxL");
 var submit = document.querySelector("#submit");
-=======
->>>>>>> Stashed changes
 let dados = {}
 
 document.getElementById("submit").addEventListener("click", async function () {
@@ -144,7 +141,6 @@ btnEnv.addEventListener("click", function(){
             
         }
     })
-<<<<<<< Updated upstream
 }});
 btnLoc.addEventListener("click", function(){
     if(caixaL.style.display === "block"){
@@ -157,6 +153,3 @@ btnLoc.addEventListener("click", function(){
         document.querySelector("#tabelaE tbody").innerHTML = "";
     }
 });
-=======
-}});
->>>>>>> Stashed changes

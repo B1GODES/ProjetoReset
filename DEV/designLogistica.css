@@ -1,38 +1,103 @@
-h1{
+/* Estilização Geral */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url('endo.jpg') no-repeat center center/cover;
+    margin: 0;
+    color: white;
+}
+
+/* Título */
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Botões principais */
+.PE {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.PE button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.PE button:hover {
+    background: #0056b3;
+}
+
+/* Estilização das caixas de tabela */
+.box, .boxE, .boxL {
+    background-color: rgba(173, 216, 230, 0.8); /* Azul claro semi-transparente */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    text-align: center;
+    display:none;
+}
+
+/* Tabelas estilizadas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
     text-align: center;
 }
-.box{
-    background: white;
-    color: #000;
-    margin-left: 15px;
-    height: 100px;
-    width: 200px;
-    padding: 15px;
-    display: none;
+
+th {
+    background: #007bff;
+    color: white;
 }
 
-.boxE{
-    background: white;
-    color: #000;
-    margin-left: 15px;
-    height: 100px;
-    width: 200px;
-    padding: 15px;
-    display: none;
+/* Inputs da seção de localização */
+.boxL input {
+    width: 80%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.boxL{
-    background: white;
-    color: #000;
-    margin-left: 15px;
-    height: 100px;
-    width: 200px;
-    padding: 15px;
-    display: none;
+/* Botão de submit */
+.boxL button {
+    width: 80%;
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
-.PE{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+.boxL button:hover {
+    background: #218838;
 }

@@ -140,7 +140,10 @@ function procurarItens(option){
                                         let cellStage = document.createElement('td');
                                         cellStage.textContent = item.stage;
                                         row.appendChild(cellStage);
-    
+                                        
+                                        let botao = document.createElement("button");
+                                        botao.textContent = "Aceitar";
+                                        row.appendChild(botao);
                                         // Adiciona a linha ao corpo da tabela
                                         tbody.appendChild(row);
                                     }

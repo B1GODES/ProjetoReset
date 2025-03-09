@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8">
+    <title>Lista</title>
+    <script src="functions.js"></script>
+  </head>
+  <body>
+   
+
+    <div class="container">
+        <h1>Bancada:</h1>
+        <input type="text" id="localll" placeholder="Digite algop">
+        <button type="button" onclick = "procurarItens(0)" >Part</button>
+        <button type="button" onclick = "procurarItens(1)" >N_Order</button>
+        <p id = "valorrr"></p>
+    </div>
+
+
+
+
+    <table>
+        <thead>
+          <tr>
+            <th>Pedido</th>
+            <th>Spare Part</th>
+            <th>Stage</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-dados">
+          <!-- As linhas da tabela serão inseridas aqui -->
+        </tbody>
+      </table>
+  </body>
+</html>

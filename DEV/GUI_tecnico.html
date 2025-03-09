@@ -4,9 +4,67 @@
        <meta charset = "UTF-8">
        <title>Autenticacao</title>
        <script src = "functions.js"></script>
+       <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('endo.jpg') no-repeat center center/cover;
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(173, 216, 230, 0.5); /* Azul claro semi-transparente */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .label-text {
+            font-family: 'Courier Prime', monospace;
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        input {
+            width: 230px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            text-align: center;
+        }
+        button {
+            width: 80%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
     </head>
     <body>
-        <h1>AUTENTICAÇÃO:</h1>
-        <p>Tecnico</p>
+    <div class="container">
+        <h1>Bancada:</h1>
+            <input type="text" id="local" placeholder="Digite uma Bancada">
+
+            <button type="button" onclick = "procurarLocal()" >Confirmar</button>
+        <p id = "valor"></p>
+    </div>
     </body>
 </html>

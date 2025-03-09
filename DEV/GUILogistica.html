@@ -1,12 +1,44 @@
 <!DOCTYPE html>
 <html lang = "pt">
-    <head>
-       <meta charset = "UTF-8">
-       <title>Autenticacao</title>
-       <script src = "functions.js"></script>
-    </head>
-    <body>
-        <h1>AUTENTICAÇÃO:</h1>
-        <p>Logistica</p>
-    </body>
+<head>
+    <meta charset = "UTF-8">
+    <title>Autenticacao</title>
+    <link rel = "stylesheet" href = "designLogistica.css">
+    <script defer src="log.js"></script>
+</head>
+<body>
+    <h1>Logisticas</h1>
+    <div class="PE">
+        <button id="pedidos">pedidos</button>
+        <button id="envios">envios</button>
+    </div>
+    <div class="box">
+        <table id="tabela" border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Order</th>
+                    <th>N Parts</th>
+                    <th>SEND</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            
+        </table>
+    </div>
+    <div class="boxE">
+        <table id="tabelaE" border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Order</th>
+                    <th>N Parts</th>
+                    <th>Stage</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            
+        </table>
+    </div>
+</body>
 </html>

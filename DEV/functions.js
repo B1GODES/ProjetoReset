@@ -1,4 +1,6 @@
+
 function login(){
+    console.log("ahgdad");
     var user = document.getElementById('user').value;
     var pass = document.getElementById('pass').value
 

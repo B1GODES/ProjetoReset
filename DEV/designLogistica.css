@@ -1,0 +1,28 @@
+h1{
+    text-align: center;
+}
+.box{
+    background: white;
+    color: #000;
+    margin-left: 15px;
+    height: 100px;
+    width: 200px;
+    padding: 15px;
+    display: none;
+}
+
+.boxE{
+    background: white;
+    color: #000;
+    margin-left: 15px;
+    height: 100px;
+    width: 200px;
+    padding: 15px;
+    display: none;
+}
+
+.PE{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}

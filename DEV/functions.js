@@ -140,12 +140,23 @@ function procurarItens(option){
                                         let cellStage = document.createElement('td');
                                         cellStage.textContent = item.stage;
                                         row.appendChild(cellStage);
-                                        
+                                        if(item.status === 0){
                                         let botao = document.createElement("button");
+                                        botao.onclick = function(){
+                                            fetch(`http://127.0.0.1:8080/list/accept/${encodeURIComponent(item.id)}`, {
+                                                method: 'PUT', 
+                                                headers: {
+                                                    'Content-Type': 'application/json',  // Tipo de conteúdo da requisição (JSON)
+                                                }
+                                            })
+                                        };
                                         botao.textContent = "Aceitar";
                                         row.appendChild(botao);
                                         // Adiciona a linha ao corpo da tabela
+                                        
+                                        }
                                         tbody.appendChild(row);
+
                                     }
                                 }else{
                                     if(item.n_order == valorrr && item.status !== -1){
@@ -168,11 +179,22 @@ function procurarItens(option){
                                         cellStage.textContent = item.stage;
                                         row.appendChild(cellStage);
                                         
-                                        let botao = document.createElement("button");
-                                        botao.textContent = "Aceitar";
-                                        row.appendChild(botao);
-                                        // Adiciona a linha ao corpo da tabela
-                                        tbody.appendChild(row);
+                                        if(item.status === 0){
+                                            let botao = document.createElement("button");
+                                            botao.onclick = function(){
+                                                fetch(`http://127.0.0.1:8080/list/accept/${encodeURIComponent(item.id)}`, {
+                                                    method: 'PUT', 
+                                                    headers: {
+                                                        'Content-Type': 'application/json',  // Tipo de conteúdo da requisição (JSON)
+                                                    }
+                                                })
+                                            };
+                                            botao.textContent = "Aceitar";
+                                            row.appendChild(botao);
+                                            // Adiciona a linha ao corpo da tabela
+                                            
+                                            }
+                                            tbody.appendChild(row);
                                  }
                                 }
                             })

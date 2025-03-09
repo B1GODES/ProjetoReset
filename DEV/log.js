@@ -5,12 +5,7 @@ var caixaE = document.querySelector(".boxE");
 var btnLoc = document.querySelector("#locais");
 var caixaL = document.querySelector(".boxL");
 var submit = document.querySelector("#submit");
-let dados = {
-    "10000" :{"Order": "101", "NParts": "3", "estado": "-1"},
-    "10020" :{"Order": "103", "NParts": "1", "estado": "0"},
-    "10012" :{"Order": "100", "NParts": "5", "estado": "1"},
-    "10001" :{"Order": "109", "NParts": "20", "estado": "-1"},
-}
+let dados = {}
 
 submit.addEventListener("click", function(){
     var input = document.getElementById("local").value;
@@ -27,29 +22,51 @@ btnRequest.addEventListener("click", function(){
         caixa.style.display = "block";
         document.querySelector("#tabelaE tbody").innerHTML = "";
         let tabela = document.getElementById("tabela").getElementsByTagName("tbody")[0];
+        fetch(`http://127.0.0.1:8080/list`, {
+            method: 'GET', 
+            headers: {
+                'Content-Type': 'application/json',  // Tipo de conteúdo da requisição (JSON)
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erro na requisição: ${response.statusText}`);
+            }
+            return response.json();  // Converte a resposta para JSON
+        })
+        .then(myJson => {
+            // Certifique-se de que a resposta contém 'status' e 'results'
 
+            if (myJson.status === 200) { // Ou verifique o código de status correto
+                let dados = myJson.results; // Obtém o array de resultados
         for(let id in dados){
-            if(dados[id].estado == -1){
+            if(dados[id].status== -1){
                 let linha = tabela.insertRow();
                 let ID = linha.insertCell(0)
                 let order = linha.insertCell(1);
                 let nParts = linha.insertCell(2);
                 let button = linha.insertCell(3);
-                ID.textContent = id;
-                order.textContent = dados[id].Order;
-                nParts.textContent = dados[id].NParts;
+                ID.textContent = dados[id].id;
+                order.textContent = dados[id].n_order;
+                nParts.textContent = dados[id]["spare part"];
                 let botao = document.createElement("button");
                 botao.textContent = "ENVIAR";
                 botao.onclick = function(){
-                    dados[id].estado = 0;
+                    fetch(`http://127.0.0.1:8080/list/${encodeURIComponent(dados[id].id)}`, {
+                        method: 'PUT', 
+                        headers: {
+                            'Content-Type': 'application/json',  // Tipo de conteúdo da requisição (JSON)
+                        }
+                    })
                     this.parentElement.parentElement.remove();
                 };
                 button.appendChild(botao); 
-            }
+        }
+        }
             
         }
-    }
-});
+    })
+}});
 
 btnEnv.addEventListener("click", function(){
     if(caixaE.style.display === "block"){
@@ -62,24 +79,40 @@ btnEnv.addEventListener("click", function(){
         document.querySelector("#tabela tbody").innerHTML = "";
         let tabela = document.getElementById("tabelaE").getElementsByTagName("tbody")[0];
 
+        fetch(`http://127.0.0.1:8080/list`, {
+            method: 'GET', 
+            headers: {
+                'Content-Type': 'application/json',  // Tipo de conteúdo da requisição (JSON)
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erro na requisição: ${response.statusText}`);
+            }
+            return response.json();  // Converte a resposta para JSON
+        })
+        .then(myJson => {
+            // Certifique-se de que a resposta contém 'status' e 'results'
+
+            if (myJson.status === 200) { // Ou verifique o código de status correto
+                let dados = myJson.results; // Obtém o array de resultados
         for(let id in dados){
-            if(dados[id].estado == 0){
+            if(dados[id].status== 0){
                 let linha = tabela.insertRow();
                 let ID = linha.insertCell(0)
                 let order = linha.insertCell(1);
                 let nParts = linha.insertCell(2);
                 let stage = linha.insertCell(3);
-
-                ID.textContent = id;
-                order.textContent = dados[id].Order;
-                nParts.textContent = dados[id].NParts;
-                stage.textContent = "Stock Out"; 
-            }
+                ID.textContent = dados[id].id;
+                order.textContent = dados[id].n_order;
+                nParts.textContent = dados[id]["spare part"];
+                stage.textContent = dados[id].stage;
+        }
+        }
             
         }
-    }
-});
-
+    })
+}});
 btnLoc.addEventListener("click", function(){
     if(caixaL.style.display === "block"){
         caixaL.style.display = "none";

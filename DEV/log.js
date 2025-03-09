@@ -7,9 +7,38 @@ var caixaL = document.querySelector(".boxL");
 var submit = document.querySelector("#submit");
 let dados = {}
 
-submit.addEventListener("click", function(){
+document.getElementById("submit").addEventListener("click", async function () {
+    var id = document.getElementById("id").value;
     var input = document.getElementById("local").value;
-    //podes brincar com este input
+
+    const dados = {
+        id: id,
+        nome: input
+    };
+
+    if (id !== "" && input !== "") {
+        try {
+            const response = await fetch("http://127.0.0.1:8080/local", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dados)
+            });
+
+            if (!response.ok) {
+                throw new Error(`Erro: ${response.status}`);
+            }
+
+            const respostaJson = await response.json();
+            console.log("Resposta do servidor:", respostaJson);
+
+        } catch (erro) {
+            console.error("Erro ao enviar:", erro);
+        }
+    } else {
+        console.log("Preencha todos os campos!");
+    }
 });
 
 btnRequest.addEventListener("click", function(){

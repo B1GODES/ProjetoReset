@@ -2,6 +2,9 @@ var btnRequest = document.querySelector("#pedidos");
 var caixa = document.querySelector(".box");
 var btnEnv = document.querySelector("#envios");
 var caixaE = document.querySelector(".boxE");
+var btnLoc = document.querySelector("#locais");
+var caixaL = document.querySelector(".boxL");
+var submit = document.querySelector("#submit");
 let dados = {
     "10000" :{"Order": "101", "NParts": "3", "estado": "-1"},
     "10020" :{"Order": "103", "NParts": "1", "estado": "0"},
@@ -9,6 +12,10 @@ let dados = {
     "10001" :{"Order": "109", "NParts": "20", "estado": "-1"},
 }
 
+submit.addEventListener("click", function(){
+    var input = document.getElementById("local").value;
+    //podes brincar com este input
+});
 
 btnRequest.addEventListener("click", function(){
     if(caixa.style.display === "block"){
@@ -16,6 +23,7 @@ btnRequest.addEventListener("click", function(){
         document.querySelector("#tabela tbody").innerHTML = "";
     }else{
         caixaE.style.display = "none";
+        caixaL.style.display = "none";
         caixa.style.display = "block";
         document.querySelector("#tabelaE tbody").innerHTML = "";
         let tabela = document.getElementById("tabela").getElementsByTagName("tbody")[0];
@@ -49,6 +57,7 @@ btnEnv.addEventListener("click", function(){
         document.querySelector("#tabelaE tbody").innerHTML = "";
     }else{
         caixa.style.display = "none";
+        caixaL.style.display = "none";
         caixaE.style.display = "block";
         document.querySelector("#tabela tbody").innerHTML = "";
         let tabela = document.getElementById("tabelaE").getElementsByTagName("tbody")[0];
@@ -68,5 +77,17 @@ btnEnv.addEventListener("click", function(){
             }
             
         }
+    }
+});
+
+btnLoc.addEventListener("click", function(){
+    if(caixaL.style.display === "block"){
+        caixaL.style.display = "none";
+    }else{
+        caixa.style.display = "none";
+        caixaE.style.display = "none";
+        caixaL.style.display = "block";
+        document.querySelector("#tabela tbody").innerHTML = "";
+        document.querySelector("#tabelaE tbody").innerHTML = "";
     }
 });

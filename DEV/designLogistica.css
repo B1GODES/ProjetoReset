@@ -21,6 +21,16 @@ h1{
     display: none;
 }
 
+.boxL{
+    background: white;
+    color: #000;
+    margin-left: 15px;
+    height: 100px;
+    width: 200px;
+    padding: 15px;
+    display: none;
+}
+
 .PE{
     display: flex;
     justify-content: center;
